@@ -1,0 +1,24 @@
+{
+  "name": "Solitary Stars",
+  "title": "SciFi Adventures in lost space",
+  "id": "solitary-stars",
+  "version": "1.0.0",
+  "description": "A custom RPG system for Foundry VTT.",
+  "author": "Charles",
+  "esmodules": ["scripts/my-custom-system.js"],
+  "styles": ["css/styles.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "system": {
+    "actorTypes": ["character", "npc", "creature"],
+    "itemTypes": ["weapon", "ability", "gear"]
+  },
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "11"
+}
