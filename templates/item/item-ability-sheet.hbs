@@ -1,0 +1,68 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Ability Name"/></h1>
+      <div class="item-subtitle">
+        <label>Job: </label>
+        <select name="system.job" data-dtype="String">
+          {{#select system.job}}
+          <option value="">Any Job</option>
+          {{#each config.jobs as |jobName jobKey|}}
+          <option value="{{jobKey}}">{{localize jobName}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="details">Details</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      <label for="system.effect">Effect:</label>
+      {{editor content=system.effect target="system.effect" button=true owner=owner editable=editable}}
+      
+      <label for="system.description">Description:</label>
+      {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Details Tab --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+      
+      <div class="flexrow">
+        <div>
+          <label for="system.uses.max">Uses per Session:</label>
+          <input name="system.uses.max" type="number" value="{{system.uses.max}}" data-dtype="Number" min="1"/>
+        </div>
+        <div>
+          <label for="system.uses.value">Current Uses:</label>
+          <input name="system.uses.value" type="number" value="{{system.uses.value}}" data-dtype="Number" min="0" max="{{system.uses.max}}"/>
+        </div>
+      </div>
+      
+      <div>
+        <label for="system.uses.per">Resets per:</label>
+        <select name="system.uses.per" data-dtype="String">
+          {{#select system.uses.per}}
+          <option value="session">Session</option>
+          <option value="day">Day</option>
+          <option value="encounter">Encounter</option>
+          {{/select}}
+        </select>
+      </div>
+      
+    </div>
+
+  </section>
+</form>

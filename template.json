@@ -1,0 +1,201 @@
+{
+  "Actor": {
+    "types": ["character", "npc", "ship"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "biography": ""
+      },
+      "attributes": {
+        "attributes": {
+          "might": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          },
+          "agility": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          },
+          "charisma": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          },
+          "intelligence": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          },
+          "perception": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          },
+          "wisdom": {
+            "value": 3,
+            "min": 1,
+            "max": 10,
+            "racial": 0
+          }
+        }
+      },
+      "secondary": {
+        "dodge": {
+          "value": 10,
+          "bonus": 0
+        },
+        "mental": {
+          "value": 10,
+          "bonus": 0
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "attributes", "secondary"],
+      "race": "",
+      "job": "",
+      "xp": {
+        "value": 0
+      },
+      "skillPoints": {
+        "trained": {
+          "max": 3,
+          "value": 0
+        },
+        "familiar": {
+          "max": 5,
+          "value": 0
+        },
+        "basic": {
+          "max": 7,
+          "value": 0
+        }
+      },
+      "skills": {
+        "trained": [],
+        "familiar": [],
+        "basic": []
+      },
+      "specialAbility": {
+        "name": "",
+        "description": "",
+        "used": false
+      }
+    },
+    "npc": {
+      "templates": ["base", "attributes", "secondary"],
+      "threat": "low"
+    },
+    "ship": {
+      "templates": ["base"],
+      "shipClass": "",
+      "attributes": {
+        "hull": {
+          "value": 5,
+          "min": 1,
+          "max": 10
+        },
+        "engines": {
+          "value": 5,
+          "min": 1,
+          "max": 10
+        },
+        "systems": {
+          "value": 5,
+          "min": 1,
+          "max": 10
+        },
+        "weapons": {
+          "value": 5,
+          "min": 1,
+          "max": 10
+        }
+      },
+      "health": {
+        "hull": {
+          "value": 50,
+          "max": 50
+        },
+        "engines": {
+          "value": 50,
+          "max": 50
+        },
+        "systems": {
+          "value": 50,
+          "max": 50
+        },
+        "weapons": {
+          "value": 50,
+          "max": 50
+        }
+      },
+      "crew": {
+        "captain": "",
+        "pilot": "",
+        "gunner": "",
+        "engineer": "",
+        "science": ""
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "gear", "ability", "shipWeapon", "shipSystem"],
+    "templates": {
+      "base": {
+        "description": "",
+        "quantity": 1,
+        "weight": 0,
+        "price": 0
+      },
+      "equippable": {
+        "equipped": false
+      }
+    },
+    "weapon": {
+      "templates": ["base", "equippable"],
+      "type": "melee",
+      "subtype": "heavy",
+      "damage": "1d6",
+      "range": 1,
+      "attribute": "might"
+    },
+    "armor": {
+      "templates": ["base", "equippable"],
+      "protection": 1
+    },
+    "gear": {
+      "templates": ["base"]
+    },
+    "ability": {
+      "templates": ["base"],
+      "job": "",
+      "effect": "",
+      "uses": {
+        "value": 1,
+        "max": 1,
+        "per": "session"
+      }
+    },
+    "shipWeapon": {
+      "templates": ["base"],
+      "damage": "2d6",
+      "range": 5
+    },
+    "shipSystem": {
+      "templates": ["base"],
+      "effect": "",
+      "modifier": 0
+    }
+  }
+}

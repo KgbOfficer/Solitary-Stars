@@ -1,0 +1,85 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Item Name"/></h1>
+      <div class="item-subtitle">
+        <label>Type: </label>
+        <select name="system.type" data-dtype="String">
+          {{#select system.type}}
+          <option value="melee">{{localize "SOLITARY.WeaponTypeMelee"}}</option>
+          <option value="ranged">{{localize "SOLITARY.WeaponTypeRanged"}}</option>
+          {{/select}}
+        </select>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="details">Details</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Details Tab --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+      
+      <div class="flexrow">
+        <div>
+          <label for="system.damage">Damage:</label>
+          <input name="system.damage" type="text" value="{{system.damage}}" data-dtype="String" placeholder="1d6"/>
+        </div>
+        <div>
+          <label for="system.range">Range:</label>
+          <input name="system.range" type="number" value="{{system.range}}" data-dtype="Number" placeholder="1"/>
+        </div>
+      </div>
+      
+      <div class="flexrow">
+        <div>
+          <label for="system.attribute">Primary Attribute:</label>
+          <select name="system.attribute" data-dtype="String">
+            {{#select system.attribute}}
+            <option value="might">{{localize "SOLITARY.AttributeMight"}}</option>
+            <option value="agility">{{localize "SOLITARY.AttributeAgility"}}</option>
+            <option value="perception">{{localize "SOLITARY.AttributePerception"}}</option>
+            {{/select}}
+          </select>
+        </div>
+        <div>
+          <label for="system.subtype">Subtype:</label>
+          <input name="system.subtype" type="text" value="{{system.subtype}}" data-dtype="String" placeholder="heavy, tactical, etc."/>
+        </div>
+      </div>
+      
+      <div class="flexrow">
+        <div>
+          <label for="system.weight">Weight:</label>
+          <input name="system.weight" type="number" value="{{system.weight}}" data-dtype="Number" step="0.1"/>
+        </div>
+        <div>
+          <label for="system.price">Price:</label>
+          <input name="system.price" type="number" value="{{system.price}}" data-dtype="Number"/>
+        </div>
+      </div>
+      
+      <div>
+        <label for="system.equipped">
+          <input name="system.equipped" type="checkbox" {{checked system.equipped}}/> Equipped
+        </label>
+      </div>
+      
+    </div>
+
+  </section>
+</form>

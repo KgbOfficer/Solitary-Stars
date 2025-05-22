@@ -1,0 +1,1 @@
+console.log("Solitary Stars system loaded!");

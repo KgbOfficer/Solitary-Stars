@@ -1,13 +1,23 @@
 {
-  "name": "Solitary Stars",
-  "title": "SciFi Adventures in lost space",
   "id": "solitary-stars",
+  "title": "Solitary Stars",
+  "description": "A science fiction roleplaying game system",
   "version": "1.0.0",
-  "description": "A custom RPG system for Foundry VTT.",
-  "author": "Charles",
-  "esmodules": ["scripts/my-custom-system.js"],
-  "styles": ["css/styles.css"],
-  "packs": [],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Your Name"
+    }
+  ],
+  "esmodules": [
+    "module/solitary-stars.js"
+  ],
+  "styles": [
+    "css/solitary-stars.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -15,10 +25,10 @@
       "path": "lang/en.json"
     }
   ],
-  "system": {
-    "actorTypes": ["character", "npc", "creature"],
-    "itemTypes": ["weapon", "ability", "gear"]
+  "grid": {
+    "distance": 5,
+    "units": "ft"
   },
-  "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "11"
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": null
 }
